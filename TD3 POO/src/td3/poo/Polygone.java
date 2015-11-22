@@ -12,7 +12,7 @@ package td3.poo;
 public interface Polygone extends Iterable<Point>{
     
     public double perimetre();
-
+    
     public double surface();
 
     public String texteSommets();

@@ -17,7 +17,7 @@ package td3.poo;
  *
  *
  */
-public class TriangleTab extends PolygoneTab {
+public class TriangleTab extends PolygoneTab implements Polygone {
 
     /**
      * a, b et c sont la distance des cotés du triangle
@@ -51,7 +51,7 @@ public class TriangleTab extends PolygoneTab {
      *
      * @since V1.0.0
      */
-    @Override
+     @Override
     public double surface() {
         if (a < 0 || b < 0 || c < 0) {
             calcABC();

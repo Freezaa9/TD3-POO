@@ -17,7 +17,7 @@ package td3.poo;
  *
  *
  */
-public class RectangleTab extends PolygoneTab {
+public class RectangleTab extends PolygoneTab implements Polygone{
 
     /**
      * a et b sont la distance de la largeur et de la longueur du rectangle

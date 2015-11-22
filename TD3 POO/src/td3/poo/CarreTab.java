@@ -12,7 +12,7 @@
  */
 package td3.poo;
 
-public class CarreTab extends RectangleTab {
+public class CarreTab extends RectangleTab implements Polygone {
 
     /**
      * <p>

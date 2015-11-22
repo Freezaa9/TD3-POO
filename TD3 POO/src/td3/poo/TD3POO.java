@@ -34,7 +34,7 @@ public class TD3POO {
 
         }
 
-        System.out.println("------Test de la classe Point : ------");
+      System.out.println("------Test de la classe Point : ------");
         Point p1 = new Point(-12, 0);
         Point p2 = new Point(5, 10);
         System.out.println("Affichage de la distance entre le point 1 et le point 2 :");
@@ -82,6 +82,9 @@ public class TD3POO {
             System.out.println("Perimetre de poly2 et polyLstCirc2");
             System.out.println(poly2.perimetre());
             System.out.println(polyLstCirc2.perimetre());
+            System.out.println("Perimetre de poly3 et polyLstCirc3");
+            System.out.println(poly3.perimetre());
+            System.out.println(polyLstCirc3.perimetre());
             System.out.println("Test de toString() :");
             System.out.println("Sommets de poly1  et polyLstCirc1:");
             System.out.println(poly1);
@@ -120,6 +123,16 @@ public class TD3POO {
         try {
             PolygoneLstCirc polygone2 = new PolygoneLstCirc(new Point[]{p1, p2});
             System.out.println(polygone2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+        try {
+            PolygoneLstCirc polyLstCirc5 = new PolygoneLstCirc((new Point[]{p1, p2, p3, p4, p5, p6}));
+            System.out.println("----------------------------------");
+            for (Point p : polyLstCirc5) {
+                System.out.println(p);
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
