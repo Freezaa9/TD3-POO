@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package td3.poo;
-
+import java.util.Iterator;
 /**
  *
  * @author geoff
  */
-public class PolygoneLstCirc implements Polygone {
+public class PolygoneLstCirc extends PolygoneTab {
 
     private class Noeud { // Class interne Noeud (inner class)
 
@@ -26,66 +26,47 @@ public class PolygoneLstCirc implements Polygone {
         }
 
         public String toString() {
-            // A coder
-            return "A coder";
+            StringBuffer buff = new StringBuffer();
+            buff.append(sommet.toString());
+            if (suiv != null) {
+                buff.append(' ');
+               buff.append(suiv.toString());   
+            }
+            return buff.toString();          
         }
 
     }
 
     private Noeud debut; // Point d'entrée de la liste
 
-    public PolygoneLstCirc(Point[] sommets) throws Exception {
-
-        if (sommets.length < 3) {
-            throw new Exception("Un polygone ne peut pas avoir moins de trois points");
-        }
-        int compteur = 0;
-        for (int i = 0; i < sommets.length; i++) {
-            for (int j = 0; j < sommets.length; j++) {
-                if (sommets[i].equals(sommets[j])) {
-                    compteur++;
-                }
-            }
-        }
-        if (compteur > sommets.length) {
-            throw new Exception("Un polygone ne peut pas avoir deux points identiques");
-        }
-
+    public PolygoneLstCirc(Point[] sommets) throws Exception { // A améliorer, on peut surement faire q'une boucle
+        super(sommets);
         Noeud[] tabN = new Noeud[sommets.length];
         debut = new Noeud(sommets[0], null);
         tabN[0] = debut;
         for (int i = 1; i < sommets.length; i++) {
             tabN[i] = new Noeud(sommets[i], null);
+            tabN[i-1].setSuiv(tabN[i]);
         }
-        for (int i = 0; i < tabN.length - 1; i++) {
-            tabN[i].setSuiv(tabN[i + 1]);
-        }
-
     }
+    
+//    @Override
+//    public double perimetre() {
+//        double result=0;
+//        Noeud noeud = debut;
+//        while(noeud.suiv != null){
+//            result += noeud.sommet.distance(noeud.suiv.sommet);
+//            noeud = noeud.suiv;
+//        }
+//        result += debut.sommet.distance(noeud.sommet);
+//        return result;
+//    }
 
-    @Override
-    public Point[] getSommets() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double perimetre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double surface() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String texteSommets() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String toString() {
-        // A coder
-        return "A coder";
-    }
-
+//    public String toString() {
+//        StringBuffer buff = new StringBuffer();
+//        buff.append("Polygone, sommet : ");
+//        buff.append(debut.toString());
+//        return buff.toString();
+//    }    
+//    
 }

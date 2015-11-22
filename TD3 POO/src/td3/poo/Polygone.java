@@ -9,10 +9,8 @@ package td3.poo;
  *
  * @author geoff
  */
-public interface Polygone {
-
-    public Point[] getSommets();
-
+public interface Polygone extends Iterable<Point>{
+    
     public double perimetre();
 
     public double surface();
